@@ -185,7 +185,14 @@ body {
     }
 
     #about {
-        @apply min-h-screen py-28 2xl:px-0 px-5 container mx-auto;
+        @apply relative z-10 min-h-screen py-28 2xl:px-0 px-5 container mx-auto;
+
+        /* Full-bleed backdrop so the pinned hero video is covered edge to edge,
+           not just across this centered container's width. */
+        &::before {
+            content: "";
+            @apply absolute inset-y-0 left-1/2 -translate-x-1/2 w-screen bg-black -z-10;
+        }
 
         .content {
             @apply grid grid-cols-1 lg:grid-cols-12 gap-5;
