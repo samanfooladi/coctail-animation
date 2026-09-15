@@ -24,13 +24,18 @@ const Art = () => {
         stagger: 0.2,
         ease: "power1.inOut",
       })
-      .to(".masked-img", {
-        scale: 1.3,
-        maskPosition: "center",
-        maskSize: "400%",
-        duration: 1,
-        ease: "power1.inOut",
-      })
+      .fromTo(
+  ".masked-img",
+  { maskSize: "50%", maskPosition: "center", scale: 1 },
+  {
+    maskSize: "400%",
+    maskPosition: "center",
+    scale: 1.3,
+    duration: 1,
+    ease: "power1.inOut",
+    immediateRender: false,
+  }
+)
       .to("#masked-content", { opacity: 1, furation: 1, ease: "power1.inOut" });
   });
   return (
